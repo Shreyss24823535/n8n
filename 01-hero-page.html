@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Fitness Journey - Free Consultation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #FFD700 0%, #FFF 40%, #000 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hero-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .background-silhouettes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path d="M200,400 Q300,200 400,400 T600,400 Q700,600 800,400 T1000,400" stroke="%23000" stroke-width="2" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .headline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3.2rem;
+            color: #000;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.3);
+        }
+
+        .subheadline {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .form-container {
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 20px 30px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #FFA500, #FFD700);
+        }
+
+        .trust-signals {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .checkmark {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 40px 20px;
+                margin: 20px;
+            }
+            
+            .headline {
+                font-size: 2.5rem;
+            }
+            
+            .subheadline {
+                font-size: 1.1rem;
+            }
+            
+            .trust-signals {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="background-silhouettes"></div>
+        
+        <div class="main-content">
+            <h1 class="headline">Start Now Your Fitness Journey 🚀</h1>
+            
+            <p class="subheadline">
+                Your dream body & healthy lifestyle is just one decision away. Book your free wellness consultation today.
+            </p>
+            
+            <form class="form-container" id="leadForm">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Your Full Name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" class="form-input" placeholder="Phone Number" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email Address" name="email" required>
+                </div>
+                
+                <button type="submit" class="cta-button">
+                    Book My Free Consultation
+                </button>
+            </form>
+            
+            <div class="trust-signals">
+                <div class="trust-item">
+                    <span class="checkmark">✅</span>
+                    <span>5,000+ Transformations</span>
+                </div>
+                <div class="trust-item">
+                    <span class="checkmark">✅</span>
+                    <span>100% Personalized Guidance</span>
+                </div>
+                <div class="trust-item">
+                    <span class="checkmark">✅</span>
+                    <span>Safe & Science-Based</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const email = formData.get('email');
+            
+            // Store in localStorage for next page
+            localStorage.setItem('leadData', JSON.stringify({
+                name: name,
+                phone: phone,
+                email: email,
+                timestamp: new Date().toISOString()
+            }));
+            
+            // Redirect to main landing page
+            window.location.href = '02-main-landing-page.html';
+        });
+
+        // Smooth animations on scroll
+        window.addEventListener('load', function() {
+            document.querySelector('.main-content').style.animation = 'fadeInUp 1.2s ease-out';
+        });
+    </script>
+</body>
+</html>

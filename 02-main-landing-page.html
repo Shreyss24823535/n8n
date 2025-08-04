@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Your Life - Wellness Webinar with Shubh Soni</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #FFD700;
+        }
+
+        .nav-cta {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section:first-child {
+            padding-top: 150px;
+        }
+
+        /* VSL Section */
+        .vsl-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .vsl-headline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: #000;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.1);
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            background: #000;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #FFD700;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            background: #FFFFFF;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #000;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .intro-text strong {
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #f8f9fa;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: #FFFFFF;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .benefit-text {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            background: #FFFFFF;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .feature-check {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .feature-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .feature-content p {
+            color: #666;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: #f8f9fa;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #FFD700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-result {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        /* Final CTA Section */
+        .final-cta-section {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .final-cta-headline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #FFD700;
+        }
+
+        .final-cta-text {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            color: #ddd;
+        }
+
+        .final-cta-button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 25px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .vsl-headline, .final-cta-headline {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .intro-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .benefits-grid, .features-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Shubh Soni Wellness</div>
+                <a href="#final-cta" class="nav-cta">Book Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- VSL Section -->
+    <section class="section vsl-section">
+        <div class="container">
+            <h1 class="vsl-headline">Watch This Before You Start Your Journey</h1>
+            <div class="video-container">
+                <!-- Replace with actual video embed -->
+                <div>🎥 VSL Video Placeholder<br><small>Embed your Video Sales Letter here</small></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section intro-section">
+        <div class="container">
+            <h2 class="section-title">Meet Your Wellness Coach</h2>
+            <div class="intro-content">
+                <div class="intro-image">
+                    📸 Shubh's Photo
+                </div>
+                <div class="intro-text">
+                    <p>Hi, I'm <strong>Shubh Soni</strong>, a Certified Wellness & Weight Loss Specialist. I've helped over <strong>5,000+ people</strong> transform their bodies and mindset with a sustainable approach to fitness & nutrition.</p>
+                    
+                    <p>This webinar will reveal the exact steps you need to achieve your ideal body—<strong>without fad diets or endless workouts</strong>.</p>
+                    
+                    <p>My proven methods focus on creating lasting lifestyle changes that work with your body, not against it. You'll discover how to lose weight, build confidence, and maintain your results for life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <h2 class="section-title">What You'll Discover in the Webinar</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔥</div>
+                    <h3 class="benefit-title">3 Secret Strategies</h3>
+                    <p class="benefit-text">Learn the proven methods to lose weight without starving yourself or feeling deprived.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🥗</div>
+                    <h3 class="benefit-title">Smart Nutrition Blueprint</h3>
+                    <p class="benefit-text">Get a personalized nutrition plan designed specifically for your body type and lifestyle.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏆</div>
+                    <h3 class="benefit-title">Weight Management Plan</h3>
+                    <p class="benefit-text">Discover how to create lasting results with a sustainable weight management system.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💪</div>
+                    <h3 class="benefit-title">Mindset Hacks</h3>
+                    <p class="benefit-text">Master the mental strategies to stay consistent and motivated throughout your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="section why-choose-section">
+        <div class="container">
+            <h2 class="section-title">Why People Trust Our Program</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-check">✅</div>
+                    <div class="feature-content">
+                        <h3>Proven Track Record</h3>
+                        <p>Over 5,000+ successful transformations with documented results and long-term success stories.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-check">✅</div>
+                    <div class="feature-content">
+                        <h3>100% Customized Diet Plans</h3>
+                        <p>Every nutrition plan is tailored to your specific needs, preferences, and lifestyle requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-check">✅</div>
+                    <div class="feature-content">
+                        <h3>Science-Based & Safe Methods</h3>
+                        <p>All our approaches are backed by scientific research and designed for sustainable, healthy results.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-check">✅</div>
+                    <div class="feature-content">
+                        <h3>Continuous Support & Accountability</h3>
+                        <p>Get ongoing guidance, motivation, and accountability to ensure you stay on track to your goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "I lost 12 kg in 90 days without feeling weak. Shubh's program changed my life completely. I finally have the energy and confidence I always wanted."
+                    </p>
+                    <div class="testimonial-author">- Priya S.</div>
+                    <div class="testimonial-result">12 kg lost in 90 days</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "The best part was that I didn't have to give up my favorite foods. Shubh taught me how to eat smart and still enjoy life. Amazing results!"
+                    </p>
+                    <div class="testimonial-author">- Rahul M.</div>
+                    <div class="testimonial-result">18 kg lost in 4 months</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "After trying countless diets, this is the only program that gave me lasting results. The mindset coaching was a game-changer for me."
+                    </p>
+                    <div class="testimonial-author">- Anita K.</div>
+                    <div class="testimonial-result">15 kg lost + maintained 2 years</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section final-cta-section" id="final-cta">
+        <div class="container">
+            <h2 class="final-cta-headline">Ready to Transform Your Life?</h2>
+            <p class="final-cta-text">
+                Don't wait another day. Your transformation journey starts with one decision.
+            </p>
+            <button class="final-cta-button" onclick="scrollToBooking()">
+                Book Your Free Consultation Now
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll to booking
+        function scrollToBooking() {
+            // Check if we have lead data from previous page
+            const leadData = localStorage.getItem('leadData');
+            if (leadData) {
+                // Redirect to thank you page
+                window.location.href = '03-thank-you-page.html';
+            } else {
+                // Redirect back to hero page for lead capture
+                window.location.href = '01-hero-page.html';
+            }
+        }
+
+        // Auto-play video with user interaction (if video is embedded)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add video autoplay logic here when VSL video is embedded
+        });
+
+        // Load animations
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelector('.vsl-section').classList.add('visible');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
